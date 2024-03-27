@@ -1,8 +1,5 @@
 // Based on https://line.github.io/line-bot-sdk-nodejs/getting-started/basic-usage.html#synopsis
-// 做了一些修改讓同學們比較好理解
-
 const express = require("express");
-const dayjs = require("dayjs");
 const line = require("@line/bot-sdk");
 const app = express();
 const port = 3000;
@@ -153,16 +150,12 @@ app.post("/webhook", line.middleware(config), (req, res) => {
 });
 
 let currentIndex = 0;
-let answers = {};
-
 async function handleEvent(event) {
   if (event.type !== "message" || event.message.type !== "text") {
     return;
   }
-  console.log(event);
+  // console.log(event);
   if (event.message.text === "開始" || currentIndex === 0) {
-    currentQuestionIndex = 0;
-
     client.replyMessage({
       replyToken: event.replyToken,
       messages: [

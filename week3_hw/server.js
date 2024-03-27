@@ -156,8 +156,6 @@ let currentIndex = 0;
 let answers = {};
 
 async function handleEvent(event) {
-  // 如果不是文字訊息，就跳出
-
   if (event.type !== "message" || event.message.type !== "text") {
     return;
   }
@@ -170,7 +168,14 @@ async function handleEvent(event) {
       messages: [
         {
           type: "text",
-          text: `您好，歡迎來到好肉小教室專欄，您需要甚麼呢？我們提供日常/有趣/健康三個類別的知識專欄呦～`,
+          text: `您好，歡迎來到好肉小教室專欄，您需要甚麼呢？我們提供日常/有趣/健康三個類別的知識專欄呦$～`,
+          emojis: [
+            {
+              index: 44,
+              productId: "5ac21184040ab15980c9b43a",
+              emojiId: "015",
+            },
+          ],
         },
       ],
     });

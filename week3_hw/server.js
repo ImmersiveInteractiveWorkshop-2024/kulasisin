@@ -93,6 +93,44 @@ const articles = {
       previewImageUrl: "https://i.imgur.com/HrP2UIk.png",
     },
   ],
+  else: [
+    {
+      id: 0,
+      text: `快選啦拜託拜託拜託~`,
+    },
+    {
+      id: 1,
+      text: `你難道不想更了解可愛的狗狗嗎？快來看喔～(日常／有趣／健康)`,
+    },
+    {
+      id: 2,
+      text: `挖藍天白雲爺，來看專欄吧!(日常／有趣／健康)`,
+    },
+    {
+      id: 3,
+      text: `你!就差你沒有看過好肉專欄惹，快來吧！(日常／有趣／健康)`,
+    },
+    {
+      id: 4,
+      text: `生活專欄是關於狗生的生活，爽(日常／有趣／健康)`,
+    },
+    {
+      id: 5,
+      text: `請選擇ㄟ謝謝你！(日常／有趣／健康)`,
+    },
+    {
+      id: 6,
+      text: `請乖乖選擇類別~(日常／有趣／健康)`,
+    },
+    {
+      id: 7,
+      text: `你好棒喔！(日常／有趣／健康)`,
+    },
+    {
+      id: 8,
+      text: `蛤！真的不選喔~(日常／有趣／健康)`,
+    },
+  ],
 };
 
 const getArticle = (category) => {
@@ -158,6 +196,10 @@ async function handleEvent(event) {
           type: "text",
           text: ` 點我看更多：${article.link}`,
         },
+        {
+          type: "text",
+          text: ` 還有更多專欄可以閱讀~請選擇專欄類別：日常／有趣／健康`,
+        },
       ],
     });
     return;
@@ -169,7 +211,7 @@ async function handleEvent(event) {
       messages: [
         {
           type: "text",
-          text: ` 您選擇了日常類別的專欄!為您特別推薦【${article.title}】：`,
+          text: ` 您選擇了有趣類別的專欄!為您特別推薦【${article.title}】：`,
           quoteToken: event.message.quoteToken,
         },
         {
@@ -180,6 +222,10 @@ async function handleEvent(event) {
         {
           type: "text",
           text: ` 點我看更多：${article.link}`,
+        },
+        {
+          type: "text",
+          text: ` 還有更多專欄可以閱讀~請選擇專欄類別：日常／有趣／健康`,
         },
       ],
     });
@@ -192,7 +238,7 @@ async function handleEvent(event) {
       messages: [
         {
           type: "text",
-          text: ` 您選擇了日常類別的專欄!為您特別推薦【${article.title}】：`,
+          text: ` 您選擇了健康類別的專欄!為您特別推薦【${article.title}】：`,
           quoteToken: event.message.quoteToken,
         },
         {
@@ -204,16 +250,22 @@ async function handleEvent(event) {
           type: "text",
           text: ` 點我看更多：${article.link}`,
         },
+        {
+          type: "text",
+          text: ` 還有更多專欄可以閱讀~請選擇專欄類別：日常／有趣／健康`,
+        },
       ],
     });
+
     return;
   } else {
+    const article = getArticle("else");
     await client.replyMessage({
       replyToken: event.replyToken,
       messages: [
         {
           type: "text",
-          text: ` 請選擇專欄類別：日常／有趣／健康`,
+          text: `${article.text}`,
           quoteToken: event.message.quoteToken,
         },
       ],

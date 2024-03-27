@@ -161,7 +161,7 @@ async function handleEvent(event) {
       messages: [
         {
           type: "text",
-          text: `您好，歡迎來到好肉小教室專欄，您需要甚麼呢？我們提供日常/有趣/健康三個類別的知識專欄呦$～`,
+          text: `您好，歡迎來到好肉寵物零食的好肉小教室專欄，您需要甚麼呢？我們提供日常/有趣/健康三個類別的知識專欄呦$～`,
           emojis: [
             {
               index: 44,
